@@ -1,14 +1,14 @@
 package main
 
 import (
-	"net/http"
-	"os"
 	"encoding/json"
-	"log"
 	"fmt"
 	"github.com/LogvinovLeon/UberChallenge/definitions"
 	"github.com/LogvinovLeon/UberChallenge/email-providers/mailgun"
 	"github.com/LogvinovLeon/UberChallenge/email-providers/sendgrid"
+	"log"
+	"net/http"
+	"os"
 )
 
 func sendEmailWithFallback(payload *definitions.EmailSendPayload, primarySender, secondarySender definitions.EmailSender) (definitions.SendResult, error) {
@@ -35,7 +35,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		} else {
 			r, e = sendEmailWithFallback(&payload, sendgrid.SendGridSender{}, mailgun.MailgunSender{})
 		}
-		if e != nil{
+		if e != nil {
 			log.Println(e)
 			return
 		}
@@ -45,5 +45,5 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/email/", handler)
-	http.ListenAndServe(":" + os.Getenv("PORT"), nil)
+	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 }
