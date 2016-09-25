@@ -11,8 +11,10 @@ import (
 	"os"
 )
 
-func sendEmailWithFallback(payload *definitions.EmailSendPayload, primarySender, secondarySender definitions.EmailSender) (definitions.SendResult, error) {
-	return primarySender.Send(payload)
+type SenderType func(*definitions.EmailSendPayload)  error
+
+func sendEmailWithFallback(payload *definitions.EmailSendPayload, primarySender, secondarySender SenderType) error {
+	return primarySender(payload)
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -28,18 +30,16 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		fmt.Println(payload)
-		var r definitions.SendResult
 		var e error
 		if payload.PreferredProvider == "mailgun" {
-			r, e = sendEmailWithFallback(&payload, mailgun.MailgunSender{}, sendgrid.SendGridSender{})
+			e = sendEmailWithFallback(&payload, mailgun.Send, sendgrid.Send)
 		} else {
-			r, e = sendEmailWithFallback(&payload, sendgrid.SendGridSender{}, mailgun.MailgunSender{})
+			e = sendEmailWithFallback(&payload, sendgrid.Send, mailgun.Send)
 		}
 		if e != nil {
 			log.Println(e)
 			return
 		}
-		log.Println(r)
 	}
 }
 
