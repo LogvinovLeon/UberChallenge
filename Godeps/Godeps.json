@@ -2,5 +2,26 @@
 	"ImportPath": "github.com/LogvinovLeon/UberChallenge",
 	"GoVersion": "go1.7",
 	"GodepVersion": "v74",
-	"Deps": []
+	"Deps": [
+		{
+			"ImportPath": "github.com/mailgun/mailgun-go",
+			"Comment": "v1.0.2",
+			"Rev": "369a1fa57ce6fb314e627087b9fff0db5c266c0f"
+		},
+		{
+			"ImportPath": "github.com/sendgrid/rest",
+			"Comment": "v2.2.0",
+			"Rev": "d37acbf70185e33da36a233f4df95848b052427c"
+		},
+		{
+			"ImportPath": "github.com/sendgrid/sendgrid-go",
+			"Comment": "v3.2.2-2-ge0b3a5e",
+			"Rev": "e0b3a5eae9f862e5f6d9961bf2d3e494d982c39e"
+		},
+		{
+			"ImportPath": "github.com/sendgrid/sendgrid-go/helpers/mail",
+			"Comment": "v3.2.2-2-ge0b3a5e",
+			"Rev": "e0b3a5eae9f862e5f6d9961bf2d3e494d982c39e"
+		}
+	]
 }
