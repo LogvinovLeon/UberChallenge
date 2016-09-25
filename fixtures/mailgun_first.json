@@ -1,0 +1,8 @@
+{
+	"to": "logvinov.leon@gmail.com",
+	"cc": [],
+	"bcc": [],
+	"subject": "Hello Postman",
+	"body": "unsunscribe",
+	"preferred_provider": "mailgun"
+}
