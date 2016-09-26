@@ -40,6 +40,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			log.Println(e)
 			return
 		}
+		w.Header().Set("Access-Control-Allow-Origin", "www.uberchallenge.email")
 	}
 }
 
