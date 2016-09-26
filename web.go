@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"io"
 )
 
 type SenderType func(*definitions.EmailSendPayload)  error
@@ -44,7 +45,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func letsEncrypt(w http.ResponseWriter, r *http.Request){
-	w.Write("dXrMaqxloLqyILg5iYkhh-AgD4e2lD05qDm0zWD2BJs.fCn8hZTEJdK_KkexIEH9JxErIzC9mu9U0N6jX6eyGac")
+	io.WriteString(w, "dXrMaqxloLqyILg5iYkhh-AgD4e2lD05qDm0zWD2BJs.fCn8hZTEJdK_KkexIEH9JxErIzC9mu9U0N6jX6eyGac")
 }
 
 func main() {
