@@ -1,1 +1,52 @@
-Hello GH Pages!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UberChallenge Email (Leonid Logvinov)</title>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+
+    <!-- Milligram CSS minified -->
+    <link rel="stylesheet" href="node_modules/milligram/dist/milligram.min.css">
+
+    <!-- You should properly set the path from the main file. -->
+</head>
+<body>
+<style>
+    header {
+        height:5vw;
+        background-color: #9b4dca;
+        margin-bottom: 1vw;
+    }
+</style>
+<header>
+</header>
+<main>
+    <section class="container">
+        <form>
+            <fieldset>
+                <label for="to">To</label>
+                <input type="email" placeholder="logvinov.leon@gmail.com" id="to">
+                <label for="subject">To</label>
+                <input type="text" placeholder="Awesome news!" id="subject">
+                <label for="body">Body</label>
+                <textarea placeholder="Hi Leonid, I would like to offer you a job at UBER" id="body"></textarea>
+                <div class="float-right">
+                    <input type="checkbox" id="confirmField">
+                    <label class="label-inline" for="confirmField">Send a copy to yourself</label>
+                </div>
+                <input class="button-primary" type="submit" value="Send">
+            </fieldset>
+        </form>
+    </section>
+</main>
+<footer>
+    <section class="container">
+        Created with ♥ by Leonid Logvinov
+    </section>
+</footer>
+</body>
+</html>
