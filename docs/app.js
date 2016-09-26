@@ -2,7 +2,6 @@ document.getElementById("send_email").onclick = function() {
     fetch('https://api.uberchallenge.email/email/', {
         method: 'POST',
         headers: {
-            'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
