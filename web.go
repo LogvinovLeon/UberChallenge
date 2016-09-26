@@ -6,7 +6,6 @@ import (
 	"github.com/LogvinovLeon/UberChallenge/definitions"
 	"github.com/LogvinovLeon/UberChallenge/email-providers/mailgun"
 	"github.com/LogvinovLeon/UberChallenge/email-providers/sendgrid"
-	"io"
 	"log"
 	"net/http"
 	"os"
