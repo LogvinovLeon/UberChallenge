@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Leonid Logvinov",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "milligram": "^1.1.0",
+    "whatwg-fetch": "^1.0.0"
+  }
 }
