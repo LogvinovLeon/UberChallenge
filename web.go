@@ -18,6 +18,8 @@ func sendEmailWithFallback(payload *definitions.EmailSendPayload, primarySender,
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	//w.Header().Set("Access-Control-Allow-Origin", "www.uberchallenge.email")
 	if r.Method == http.MethodPost {
 		if r.Body == nil {
 			http.Error(w, "Please send a request body", 400)
@@ -40,8 +42,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			log.Println(e)
 			return
 		}
-		w.Header().Set("Access-Control-Allow-Origin", "*")
-		//w.Header().Set("Access-Control-Allow-Origin", "www.uberchallenge.email")
 		fmt.Fprintf(w, "OK\n")
 	}
 }
