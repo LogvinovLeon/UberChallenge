@@ -17,27 +17,40 @@
 <body>
 <style>
     header {
-        height:5vw;
+        height: 5vw;
         background-color: #9b4dca;
         margin-bottom: 1vw;
+    }
+    #body{
+        height:auto;
     }
 </style>
 <header>
 </header>
 <main>
+
     <section class="container">
-        <form>
-            <fieldset>
-                <label for="to">To</label>
-                <input type="email" placeholder="logvinov.leon@gmail.com" id="to">
-                <label for="subject">Subject</label>
-                <input type="text" placeholder="Awesome news!" id="subject">
-                <label for="body">Body</label>
-                <textarea placeholder="Hi Leonid, I would like to offer you a job at UBER" id="body"></textarea>
-                <input class="button-primary" type="submit" value="Send" id="send_email">
-            </fieldset>
-        </form>
+        <div class="row">
+            <div class="column">
+                <form>
+                    <fieldset>
+                        <label for="to">To</label>
+                        <input type="email" placeholder="logvinov.leon@gmail.com" id="to">
+                        <label for="subject">Subject</label>
+                        <input type="text" placeholder="Awesome news!" id="subject">
+                        <label for="body">Body</label>
+                        <textarea placeholder="Hi Leonid,\n\nI would like to offer you a job at UBER\n\nBest,\nUBER CEO" rows="6" id="body"></textarea>
+                        <input class="button-primary button button-outline" type="submit" value="Send" id="send_email">
+                    </fieldset>
+                </form>
+            </div>
+            <div class="column">
+                <label for="message_log">Message log:</label>
+                <div id="message_log"></div>
+            </div>
+        </div>
     </section>
+
 </main>
 <footer>
     <section class="container">
