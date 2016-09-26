@@ -43,7 +43,12 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func letsEncrypt(w http.ResponseWriter, r *http.Request){
+	w.Write("dXrMaqxloLqyILg5iYkhh-AgD4e2lD05qDm0zWD2BJs.fCn8hZTEJdK_KkexIEH9JxErIzC9mu9U0N6jX6eyGac")
+}
+
 func main() {
+	http.HandleFunc("/.well-known/acme-challenge/dXrMaqxloLqyILg5iYkhh-AgD4e2lD05qDm0zWD2BJs/", letsEncrypt)
 	http.HandleFunc("/email/", handler)
 	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 }
