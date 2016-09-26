@@ -6,13 +6,13 @@ import (
 	"github.com/LogvinovLeon/UberChallenge/definitions"
 	"github.com/LogvinovLeon/UberChallenge/email-providers/mailgun"
 	"github.com/LogvinovLeon/UberChallenge/email-providers/sendgrid"
+	"io"
 	"log"
 	"net/http"
 	"os"
-	"io"
 )
 
-type SenderType func(*definitions.EmailSendPayload)  error
+type SenderType func(*definitions.EmailSendPayload) error
 
 func sendEmailWithFallback(payload *definitions.EmailSendPayload, primarySender, secondarySender SenderType) error {
 	return primarySender(payload)
@@ -44,12 +44,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func letsEncrypt(w http.ResponseWriter, r *http.Request){
-	io.WriteString(w, "dXrMaqxloLqyILg5iYkhh-AgD4e2lD05qDm0zWD2BJs.fCn8hZTEJdK_KkexIEH9JxErIzC9mu9U0N6jX6eyGac")
-}
-
 func main() {
-	http.HandleFunc("/.well-known/acme-challenge/dXrMaqxloLqyILg5iYkhh-AgD4e2lD05qDm0zWD2BJs/", letsEncrypt)
 	http.HandleFunc("/email/", handler)
 	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 }
