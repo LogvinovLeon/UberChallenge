@@ -3,28 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>UberChallenge Email (Leonid Logvinov)</title>
-    <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-
-    <!-- CSS Reset -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-
-    <!-- Milligram CSS minified -->
     <link rel="stylesheet" href="node_modules/milligram/dist/milligram.min.css">
-
-    <!-- You should properly set the path from the main file. -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<style>
-    header {
-        height: 5vw;
-        background-color: #9b4dca;
-        margin-bottom: 1vw;
-    }
-    #body{
-        height:auto;
-    }
-</style>
 <header>
 </header>
 <main>
@@ -35,11 +19,13 @@
                 <form>
                     <fieldset>
                         <label for="to">To</label>
-                        <input type="email" placeholder="logvinov.leon@gmail.com" id="to">
+                        <input type="email" placeholder="logvinov.leon@gmail.com" id="to" name="email"
+                               autocomplete="true">
                         <label for="subject">Subject</label>
                         <input type="text" placeholder="Awesome news!" id="subject">
                         <label for="body">Body</label>
-                        <textarea placeholder="Hi Leonid,\n\nI would like to offer you a job at UBER\n\nBest,\nUBER CEO" rows="6" id="body"></textarea>
+                        <textarea placeholder="Hi Leonid,\n\nI would like to offer you a job at UBER\n\nBest,\nUBER CEO"
+                                  rows="6" id="body"></textarea>
                         <input class="button-primary button button-outline" type="submit" value="Send" id="send_email">
                     </fieldset>
                 </form>

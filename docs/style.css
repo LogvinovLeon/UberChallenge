@@ -1,0 +1,17 @@
+header {
+    height: 5vw;
+    background-color: #9b4dca;
+    margin-bottom: 1vw;
+}
+
+#body {
+    height: auto;
+}
+
+.subject {
+    margin-bottom: 0;
+}
+
+.to {
+    margin-bottom: 0;
+}

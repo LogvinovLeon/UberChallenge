@@ -1,9 +1,19 @@
 "use strict";
 
+var renderMessage = function(message){
+    var renderedMessage =
+        `<div class='message'>` +
+            `<h4 class='to'>${message.to}</h4>` +
+            `<h5 class='subject'>${message.subject}</h5>` +
+            `<p class='body'>${message.body}</p>` +
+        `</div>`
+    var wrapper = document.createElement('div');
+    wrapper.innerHTML = renderedMessage;
+    return wrapper;
+};
+
 var prependToMessageLog = function (payload, response) {
-    var logEntry = document.createElement("div");
-    logEntry.textContent = JSON.stringify(payload);
-    document.getElementById("message_log").appendChild(logEntry);
+    document.getElementById("message_log").appendChild(renderMessage(payload));
 };
 
 var sendEmail = function () {
@@ -20,7 +30,6 @@ var sendEmail = function () {
         },
         body: JSON.stringify(payload)
     }).then(function (response) {
-        console.log("OK");
         prependToMessageLog(payload, response);
     }).catch(function () {
         console.log("FAIL");
@@ -33,7 +42,8 @@ document.getElementById("send_email").onclick = sendEmail;
 
 var rewriteMultiLinePlaceholders = function () {
     var placeholder = document.getElementById("body").placeholder;
-    console.log(placeholder.split("\\n"));
     document.getElementById("body").placeholder = placeholder.split("\\n").join("\n");
 };
 rewriteMultiLinePlaceholders();
+
+prependToMessageLog({to: "logvinov.leon@gmail.com", message:"Lorem ipsum", subject:"Frgvkblae hrqh qrb!"})
