@@ -1,7 +1,7 @@
 package definitions
 
 type EmailSendPayload struct {
-	To      string
+	To      []string
 	Cc      []string
 	Bcc     []string
 	Subject string

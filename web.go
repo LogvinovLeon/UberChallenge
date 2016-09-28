@@ -14,13 +14,13 @@ import (
 type SenderType func(*definitions.EmailSendPayload) error
 
 func sendEmailWithFallback(payload *definitions.EmailSendPayload, primarySender, secondarySender SenderType) error {
-	return primarySender(payload)
+	e := primarySender(payload)
+	return e
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
-	//w.Header().Set("Access-Control-Allow-Origin", "www.uberchallenge.email")
 	if r.Method == http.MethodPost {
 		if r.Body == nil {
 			http.Error(w, "Please send a request body", 400)
