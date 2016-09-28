@@ -2,11 +2,11 @@
 
 var renderMessage = function(message){
     var renderedMessage =
-        `<div class='message'>` +
-            `<h4 class='to'>${message.to}</h4>` +
-            `<h5 class='subject'>${message.subject}</h5>` +
-            `<p class='body'>${message.body}</p>` +
-        `</div>`
+        "<div class='message'>" +
+            "<h4 class='to'>" + message.to + "</h4>" +
+            "<h5 class='subject'>" + message.subject + "</h5>" +
+            "<p class='body'>" + message.body + "</p>" +
+        "</div>";
     var wrapper = document.createElement('div');
     wrapper.innerHTML = renderedMessage;
     return wrapper;
@@ -17,7 +17,7 @@ var prependToMessageLog = function (payload, response) {
 };
 
 var sendEmail = function () {
-    var SEND_ENDPOINT = 'https://api.uberchallenge.email/email/';
+    var SEND_ENDPOINT = 'https://api.uberchallenge.email/email';
     var payload = {
         to: document.getElementById("to").value,
         subject: document.getElementById("subject").value,
