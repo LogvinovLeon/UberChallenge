@@ -4,6 +4,11 @@
 	"GodepVersion": "v74",
 	"Deps": [
 		{
+			"ImportPath": "github.com/gorilla/handlers",
+			"Comment": "v1.1-11-ga577578",
+			"Rev": "a5775781a543af3c6b9f5baf10995e4d14168950"
+		},
+		{
 			"ImportPath": "github.com/mailgun/mailgun-go",
 			"Comment": "v1.0.2",
 			"Rev": "369a1fa57ce6fb314e627087b9fff0db5c266c0f"
