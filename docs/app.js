@@ -45,5 +45,3 @@ var rewriteMultiLinePlaceholders = function () {
     document.getElementById("body").placeholder = placeholder.split("\\n").join("\n");
 };
 rewriteMultiLinePlaceholders();
-
-prependToMessageLog({to: "logvinov.leon@gmail.com", message:"Lorem ipsum", subject:"Frgvkblae hrqh qrb!"})
